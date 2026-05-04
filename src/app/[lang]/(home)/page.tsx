@@ -31,7 +31,12 @@ import WulfrumTriangle from "./(showcaseImages)/Wulfrum_triangle.gif";
 import MagicCircleGust from "./(showcaseImages)/MagicCircleGust.gif";
 import Shroomie from "./(showcaseImages)/Shroomie.gif";
 import Froggy from "./(showcaseImages)/Froggy.gif";
+import Sanguivar from "./(showcaseImages)/Sanguivar.gif";
 import VoileBanner from "./(showcaseImages)/voile.png";
+import MushroomLizard from "./(showcaseImages)/MushroomLizard.png";
+import AlecsTamework from "./(showcaseImages)/AlecsTamework.png";
+import Hexcode from "./(showcaseImages)/Hexcode.png";
+import HyYap from "./(showcaseImages)/HyYap.png";
 import { DiscordButton } from "./discord-button";
 import { SponsorButton } from "./support-button";
 import { GitInfoButton } from "@/components/git-info-button";
@@ -124,6 +129,41 @@ const showcaseItems: ShowcaseItem[] = [
     link: "https://www.curseforge.com/hytale/mods/docs",
     type: "art",
   },
+  {
+    title: "Mushroom Lizard",
+    author: "lulu",
+    image: MushroomLizard,
+    link: "https://discord.gg/hytalemodding",
+    type: "art",
+  },
+  {
+    title: "Alec's Tamework",
+    author: "Alec",
+    image: AlecsTamework,
+    link: "https://www.curseforge.com/hytale/mods/alecs-tamework",
+    type: "art",
+  },
+  {
+    title: "Sanguivar",
+    author: "lulu",
+    image: Sanguivar,
+    link: "https://discord.gg/hytalemodding",
+    type: "art"
+  },
+  {
+    title: "Hexcode",
+    author: "Riprod",
+    image: Hexcode,
+    link: "https://discord.gg/hytalemodding",
+    type: "art"
+  },
+  {
+    title: "HyYap",
+    author: "Azim",
+    image: HyYap,
+    link: "https://discord.gg/hytalemodding",
+    type: "art"
+  }
 ];
 
 const ShowcaseCard = ({ item }: { item: ShowcaseItem }) => {
@@ -143,7 +183,10 @@ const ShowcaseCard = ({ item }: { item: ShowcaseItem }) => {
                   {item.title}
                 </h3>
                 <p className="text-muted-foreground z-20 text-base">
-                  {messages.showcaseItems.madeBy.replace("{author}", item.author)}
+                  {messages.showcaseItems.madeBy.replace(
+                    "{author}",
+                    item.author,
+                  )}
                 </p>
                 {item.description && (
                   <p className="text-muted-foreground z-20 mt-1 line-clamp-2 text-sm">
@@ -365,7 +408,7 @@ export default function HomePage() {
       <div className="mt-auto mb-8 w-full py-8">
         <Marquee className="h-64 w-full">
           <MarqueeFade side="left" className="w-12" />
-          <MarqueeContent speed={100} autoFill={false}>
+          <MarqueeContent speed={200} autoFill={false}>
             {repeatedItems.map((item, index) => (
               <MarqueeItem key={`${item.title}-${index}`} className="mx-2">
                 <ShowcaseCard item={item} />
