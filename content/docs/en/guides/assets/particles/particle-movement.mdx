@@ -1,37 +1,55 @@
 ---
-title: "q2eq2eq2"
+title: "Particle Movement"
 description: "The Overviwe Page for Particles"
 authors:
-    - name: "NoctuaAstrunm"
+    - name: "NoctuaAstrum (N0C7U4)"
 ---
 
 Particle Movement is both used for single particles as well as for a spawner of multiple particles. There are two options to define movement. 
 # Initial Velocity
 Initial Velocity describes the vector direction and it's strenght in which the particle moves instantly after it's creation.
 
-| Value   | Description                                                                                      |
+| Field   | Description                                                                                      |
 | ------- | ------------------------------------------------------------------------------------------------ |
 | `Yaw`   | The Yaw rotation of the vector from its origin. A random value between `Min` and `Max` is used   |
 | `Pitch` | The Pitch rotation of the vector from its origin. A random value between `Min` and `Max` is used |
 | `Speed` | The speed of the particles in blocks per second. A random value between `Min` and `Max` is used  |
-##### Directions:
+### Directions:
 
-| Direction | Values                  |
-| --------- | ----------------------- |
-| SOUTH     | `{"Pitch": 0,"Yaw": 0}` |
-| NORTH     | `{"Pitch": 0,"Yaw": 0}` |
-| EAST      | `{"Pitch": 0,"Yaw": 0}` |
-| WEST      | `{"Pitch": 0,"Yaw": 0}` |
-| UP        | `{"Pitch": 0,"Yaw": 0}` |
-| DOWN      | `{"Pitch": 0,"Yaw": 0}` |
-Tip: Did you know you can copy and paste values by right clicking on a field or header in the asset editor. It copies the values in json format so you can copy the text in the values too and insert it.
+SOUTH:
+```json 
+{"Pitch": 0,"Yaw": 0}
+```
+NORTH:
+```json 
+{"Pitch": 0,"Yaw": 0}
+```
+EAST:
+```json 
+{"Pitch": 0,"Yaw": 0}
+```
+WEST:
+```json 
+{"Pitch": 0,"Yaw": 0}
+``` 
+UP:
+```json 
+{"Pitch": 0,"Yaw": 0}
+``` 
+DOWN:
+```json 
+{"Pitch": 0,"Yaw": 0}
+```
+<Callout>
+Did you know, that you can copy and paste values by right clicking on a field or header in the asset editor. It copies the values in json format so you can paste the json values from here into it too.
+</Callout>
 # Attractors
 A list of attractors can define the change of movement more precisely. They stack on top of each other, but can also be defined to work just in a specific radius.
 
-| Value                       | Description                                                                                                                                                                                                                                                        |
+| Field                       | Description                                                                                                                                                                                                                                                        |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Position                    | The Offset of the Attractor originating from the center of the spawn                                                                                                                                                                                               |
-| Radial Axis                 | The Axis the radial values are calculated around. It's a little more Complicated so here is a preciser explanation                                                                                                                                                 |
+| Radial Axis                 | The Axis the radial values are calculated around. It's a little more Complicated so [below](./particle-movement#radial-axis) is a preciser explanation                                                                                                                                                 |
 | Trail Position Multiplier   | Percentage the attractor moves with it's spawner. 1 (default): moves fully with the spawner 0: does not move with the spawner                                                                                                                                      |
 | Radius                      | the maximal distance a single particle can be away from the attractors position to still be affected. Default Value (=empty): always affected                                                                                                                      |
 | Radial Acceleration         | Positive value: Acceleration from the axis Negative value: Acceleration to the axis -> gravity behaviour                                                                                                                                                           |

@@ -1,7 +1,15 @@
 {
-  "title": "{Particle Guide}",
+  "title": "Particle Guide",
   "pages": [
-    "particles.mdx"
+    "particle-overwiew.mdx",
+    "particle-system.mdx",
+    "particle-spawner.mdx",
+    "emission-shapes.mdx",
+    "particle-render-modes.mdx",
+    "particle-movement.mdx",
+    "uv-motion.mdx",
+    "workflow",
+    "summary.mdx"
   ],
   "icon": "Snowflake"
 }

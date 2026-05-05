@@ -1,8 +1,8 @@
 ---
-title: "458tfg5"
+title: "Particle Spawner"
 description: "The Overviwe Page for Particles"
 authors:
-    - name: "NoctuaAstrunm"
+    - name: "NoctuaAstrum (N0C7U4)"
 ---
 
 ParticleSpawner are the core of a particle. You will spend your time mostly here, while creating particles.
@@ -16,7 +16,7 @@ Contains fields regarding the creation and deletion of the particle in the world
 | Comment                  | A place for your notes                                                                                                                                              |
 | Tags                     | -                                                                                                                                                                   |
 | Shape                    | The Emit Offset is either calculated in a Sphere or a Cube.                                                                                                         |
-| Emit Offset              | Defines a Minimum Emit Offset Shape and a Maximum Emit Offset Shape. More on Emit Shapes [here](EmissionShapes.md).                                                        |
+| Emit Offset              | Defines a Minimum Emit Offset Shape and a Maximum Emit Offset Shape. More on Emit Shapes [here](./emission-shapes).                                                        |
 | Use Emit Direction       | If Initial Velocity has a Speed Value, the Pitch and Yaw of it get ignored and instead the movement is in a line, from/to the emit centre                           |
 | Total Particles          | How many particles are spawned in the whole lifespan. Uses a random value between Min and Max. Leave empty, if it shouldn't have a limitation                       |
 | Life Span                | How long Particles get spawned                                                                                                                                      |
@@ -25,7 +25,7 @@ Contains fields regarding the creation and deletion of the particle in the world
 | Spawn Rate               | how many particles get spawned                                                                                                                                      |
 | Spawn Burst              | spawn the particles at the same time                                                                                                                                |
 | Wave Delay               | Is the time between spawn bursts                                                                                                                                    |
-| Initial Velocity         | defines the motion present at the creation of the particle. more on this is found in [[Particle Movement]]                                                          |
+| Initial Velocity         | defines the motion present at the creation of the particle. more on this is found in [Particle Movement](./particle-movement#initial-velocity)                                                        |
 
 ### Motion
 Contains fields regarding the influence of outside factors on positionand rotation
@@ -39,19 +39,19 @@ Contains fields regarding the influence of outside factors on positionand rotati
 | Velocity Stretch Multiplier       | how strong particles get additionally stretched in their direction of motion |
 
 ### Attractors
-Contains a list of Attractor, explained in [[Particle Movement]]
+Contains a list of Attractor. What they are is explained in [Particle Movement](./particle-movement).
 ### Material
 Contains rendering Properties of the particles
 
 | Field                  | Definition                                                                                                                                               |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Render Mode            | How the particles should get overlayed [here](ParticleRenderModes)                                                                                       |
+| Render Mode            | How the particles should get overlayed [ParticleRenderModes](./particle-render-modes)                                                                                       |
 | Light Influence        | How strong the surrounding light affects the brightness of the particle                                                                                  |
 | Intersection Highlight | applies Effects when intersecting a block                                                                                                                |
 | -> Highlight Threshold | how thick the highlight on the intersection is                                                                                                           |
 | -> Highlight Colour    | to what the particle should get tinted to                                                                                                                |
 | Linear Filtering       | If true smoothes the corners of textures out                                                                                                             |
-| UV Motion              | applies Distortion to the particle Texture more [here](UVMotion)                                                                                         |
+| UV Motion              | applies Distortion to the particle Texture more [UVMotion](./uv-motion)                                                                                         |
 | Camera Offset          | additional value for the distance to tge camera, positive for further away, negative for closer. used to fix texture infighting/particles being obscured |
                                                                            
 
@@ -87,7 +87,9 @@ Contains fields regarding the texture of the particle
 | Use Sprite Blending        |             |
 
 #### Animation
-Contains a list of animation frames, as well as the one in case of collision. Each frame needs a key (0-100), which renders that frame at the percentage of the particle life span. A frame with the key 50 would be rendered at half the particle lifespan. Values between frames are interpolated.
+Contains a list of animation frames, as well as the one in case of collision. Each frame needs a key (0-100), which renders that frame at the percentage of the particle life span. A frame with the key 50 would be rendered at half the particle lifespan. 
+
+Values between frames are interpolated.
 
 | Field       | Description |
 | ----------- | ----------- |
