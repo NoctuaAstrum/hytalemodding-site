@@ -3,6 +3,7 @@
   "pages": [
     "particle-overwiew.mdx",
     "particle-system.mdx",
+    "particle-spawner-group.mdx",
     "particle-spawner.mdx",
     "emission-shapes.mdx",
     "particle-render-modes.mdx",

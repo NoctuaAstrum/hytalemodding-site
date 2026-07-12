@@ -1,6 +1,20 @@
 ---
-title: "Emission Shapes"
-description: "The Overviwe Page for Particles"
+title: Emission Shapes
+description: Everything important for spawning sparticles in a specific shape
 authors:
-    - name: "NoctuaAstrum (N0C7U4)"
+  - name: NoctuaAstrum (N0C7U4)
 ---
+
+Using `Emit Offset` you define a region centered around the origin of the `ParticleSpawner` , where the particles can he spawned in at a random po position. 
+The values expand into both directions, meaning if you put `1` for x (`Max`) as an example, the particles can spawn in the x region <span style="color:green">[-1;+1]</span>, where `0` is the centre of the `ParticleSpawner` 
+
+- <span style={{color:'#00aaff'}}>Max</span>: how far away a particle can be spawned from the centre at maximum
+- <span style={{color:'#00aaff'}}>Min</span>: how far a spawned particle needs to be away at minimum from the centre; ToDo: Min>Max
+## 0D (Point)
+When all `Max` values are `0`, the particles will always be spawned at the centre. `Min` values are useless here.
+## 1D (Line)
+When only one `Max` value is not `0`, then the particles spawn in a line. A Min `value` does not split the line into two!
+## 2D (Ellipse/Rectangle)
+When there are two `Max` values defined, the particle spawn on a plane, either in a circular or rectangular shape . ToDo: `Min` value
+## 3D (Ellipsoid/Cuboid)
+When all `Max` fields are filled out (are not zero), the particles spawn in the given 3d shape

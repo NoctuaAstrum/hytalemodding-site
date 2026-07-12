@@ -5,72 +5,71 @@ authors:
     - name: "NoctuaAstrum (N0C7U4)"
 ---
 
-ParticleSpawner are the core of a particle. You will spend your time mostly here, while creating particles.
-Since there are a lot of fields, let's categorize them like in the asset editor
+ParticleSpawner are the core of a particle. You will spend your time mostly here while creating particles.
+Since there are a lot of fields, let's categorize them like in the asset editor.
 ### General
 Contains fields regarding the creation and deletion of the particle in the world
 
-| Field                    | Definition                                                                                                                                                          |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Parent                   | Makes this `ParticleSpawner` inherit the values of another `ParticleSpawner` as default values. Spawn Burst and Wave Delay don't seem to be carried over correctly. |
-| Comment                  | A place for your notes                                                                                                                                              |
-| Tags                     | -                                                                                                                                                                   |
-| Shape                    | The Emit Offset is either calculated in a Sphere or a Cube.                                                                                                         |
-| Emit Offset              | Defines a Minimum Emit Offset Shape and a Maximum Emit Offset Shape. More on Emit Shapes [here](./emission-shapes).                                                        |
-| Use Emit Direction       | If Initial Velocity has a Speed Value, the Pitch and Yaw of it get ignored and instead the movement is in a line, from/to the emit centre                           |
-| Total Particles          | How many particles are spawned in the whole lifespan. Uses a random value between Min and Max. Leave empty, if it shouldn't have a limitation                       |
-| Life Span                | How long Particles get spawned                                                                                                                                      |
-| Max Concurrent Particles | how many spawned particles can be present at the same time. if you don't have spawn burst the value should be Particle Life Span (Max) * Spawn Rate (Max)           |
-| Particle Life Span       | how long a particle lasts                                                                                                                                           |
-| Spawn Rate               | how many particles get spawned                                                                                                                                      |
-| Spawn Burst              | spawn the particles at the same time                                                                                                                                |
-| Wave Delay               | Is the time between spawn bursts                                                                                                                                    |
-| Initial Velocity         | defines the motion present at the creation of the particle. more on this is found in [Particle Movement](./particle-movement#initial-velocity)                                                        |
+| Field                    | Definition                                                                                                                                                                                                                                               |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Parent                   | Makes this `ParticleSpawner` inherit the values of another `ParticleSpawner` as default values. Spawn Burst and Wave Delay don't seem to be carried over correctly. `Particle` is more or less it's own nested asset, so you can only inherit the whole. |
+| Comment                  | A place for your notes                                                                                                                                                                                                                                   |
+| Tags                     | Tags are a way to organise assetes for further use with [java plugins](./todo)                                                                                                                                                                           |
+| Shape                    | The Emit Offset is either calculated in a Sphere or a Cube. More on Emit Shapes [here](./emission-shapes).                                                                                                                                               |
+| Emit Offset              | Defines a Minimum Emit Offset Shape and a Maximum Emit Offset Shape. More on Emit Shapes [here](./emission-shapes).                                                                                                                                      |
+| Use Emit Direction       | If Initial Velocity has a Speed Value, the Pitch and Yaw of it get ignored and instead the movement is in a line, from/to the emit centre                                                                                                                |
+| Total Particles          | How many particles are spawned in the whole lifespan. Uses a random value between Min and Max. Leave empty, if it shouldn't have a limitation                                                                                                            |
+| Life Span                | How long Particles get spawned                                                                                                                                                                                                                           |
+| Max Concurrent Particles | how many spawned particles can be present at the same time.  <br />if you don't have spawn burst the value should be Particle Life Span (Max) * Spawn Rate (Max)                                                                                           |
+| Particle Life Span       | how long a particle lasts                                                                                                                                                                                                                                |
+| Spawn Rate               | how many particles get spawned                                                                                                                                                                                                                           |
+| Spawn Burst              | if checked the particles spawn at the same time                                                                                                                                                                                                          |
+| Wave Delay               | Is the time between spawn bursts                                                                                                                                                                                                                         |
+| Initial Velocity         | defines the motion present at the creation of the particle. <br />more on this is found in [Particle Movement](./particle-movement#initial-velocity)                                                                                                       |
 
 ### Motion
 Contains fields regarding the influence of outside factors on positionand rotation
 
-| Field                             | Definition                                                                   |
-| --------------------------------- | ---------------------------------------------------------------------------- |
-| Particle Rotation Influence       | How the particles rotation should be influenced                              |
-| Particle Rotate With Spawner      |                                                                              |
-| Trail Spawner Position Multiplier |                                                                              |
-| Trail Spawner Rotation Multiplier |                                                                              |
-| Velocity Stretch Multiplier       | how strong particles get additionally stretched in their direction of motion |
+| Field                             | Definition                                                                                                                                                                                                      |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Particle Rotation Influence       | How the rotation of the particles should be influenced                                                                                                                                                          |
+| Particle Rotate With Spawner      |                                                                                                                                                                                                                 |
+| Trail Spawner Position Multiplier | -`0`: Particles move with how much it's anchor moves  <br />-`0.5`: Particles rotate their position half the roration its anchor rotates <br />-`1`: Particles don't rotate their position                          |
+| Trail Spawner Rotation Multiplier | -`0`: Particles rotate their position around the same axis its anchor rotates  <br />-`0.5`: Particles rotate their position half the roration its anchor rotates <br />-`1`: Particles don't rotate their position |
+| Velocity Stretch Multiplier       | how strong particles get additionally stretched in their direction of motion                                                                                                                                    |
 
 ### Attractors
 Contains a list of Attractor. What they are is explained in [Particle Movement](./particle-movement).
 ### Material
 Contains rendering Properties of the particles
 
-| Field                  | Definition                                                                                                                                               |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Render Mode            | How the particles should get overlayed [ParticleRenderModes](./particle-render-modes)                                                                                       |
-| Light Influence        | How strong the surrounding light affects the brightness of the particle                                                                                  |
-| Intersection Highlight | applies Effects when intersecting a block                                                                                                                |
-| -> Highlight Threshold | how thick the highlight on the intersection is                                                                                                           |
-| -> Highlight Colour    | to what the particle should get tinted to                                                                                                                |
-| Linear Filtering       | If true smoothes the corners of textures out                                                                                                             |
-| UV Motion              | applies Distortion to the particle Texture more [UVMotion](./uv-motion)                                                                                         |
-| Camera Offset          | additional value for the distance to tge camera, positive for further away, negative for closer. used to fix texture infighting/particles being obscured |
-                                                                           
+| Field                  | Definition                                                                                                                                                                               |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Render Mode            | How the particles should get overlayed [ParticleRenderModes](./particle-render-modes)                                                                                                    |
+| Light Influence        | How strong the surrounding light affects the brightness of the particle                                                                                                                  |
+| Intersection Highlight | applies tint to the particle when intersecting a block                                                                                                                                   |
+| -> Highlight Threshold | how thick the highlight on the intersection is                                                                                                                                           |
+| -> Highlight Colour    | what tint should be applied to intersection of the particle                                                                                                                              |
+| Linear Filtering       | If true smoothes the corners of the particle texture                                                                                                                                     |
+| UV Motion              | applies Distortion to the particle texture  <br />more in [UVMotion](./uv-motion)                                                                                                          |
+| Camera Offset          | additional value for the distance to the camera  <br /> - positive for further away  <br /> - negative for closer to camera <br /> <br />used to fix texture infighting/particles being obscured |
 
 ### Collision 
 Contains the reaction when a spawned particle hits a specified blocktype
 
-| Field                          | Description |
-| ------------------------------ | ----------- |
-| Particle Collision             |             |
-| -> Block Type                  |             |
-| -> Action                      |             |
-| -> Particle Rotation Influence |             |
+| Field                          | Description                                                                                                                                                                                                                                            |     |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --- |
+| Particle Collision             |                                                                                                                                                                                                                                                        |     |
+| -> Block Type                  | What block type triggers the collision:  <br />-`Solid`: only solid blocks (e.g. Soil, Rock, Wood)  <br />-`Air`: only air blocks (e.g. Leaves, Grass, Bushes; <span style="color:red">not</span> the Air/Empty Block)  <br />-`All`: both `Solid` and `Air` |     |
+| -> Action                      | what should be done upon collision:  <br />`Expire`: the particle disappears  <br />`Linger`: the particles motion gets halted (doesn't move anymore) <br /> `Last Frame`:                                                                                   |     |
+| -> Particle Rotation Influence |                                                                                                                                                                                                                                                        |     |
 
 ### Optimization
 Contains a single field for optimization
 
-| Field      | Description |
-| ---------- | ----------- |
-| Is Low Res |             |
+| Field      | Description                                                                                    |
+| ---------- | ---------------------------------------------------------------------------------------------- |
+| Is Low Res | *seems to optimize something, but i havent seen any differences yet in how the particle looks* |
 
 
 ### Particle
@@ -78,37 +77,38 @@ Is the thing that gets Spawned in, fields are group in 3 categories
 #### Material
 Contains fields regarding the texture of the particle
 
-| Field                      | Description |
-| -------------------------- | ----------- |
-| Texture                    |             |
-| Frame Size                 |             |
-| Soft Particles             |             |
-| Soft Particles Fade Factor |             |
-| Use Sprite Blending        |             |
+| Field                      | Description                                                                            |
+| -------------------------- | -------------------------------------------------------------------------------------- |
+| Texture                    | is the texture that gets displayed                                                     |
+| Frame Size                 | cuts the give texture into frames of this size                                         |
+| Soft Particles             | smoothes out a hard edge, if near a block                                              |
+| Soft Particles Fade Factor | how strong the edges should get smoothed                                               |
+| Use Sprite Blending        | if you have multiple frames and transition between them, the texture gets interpolated |
 
 #### Animation
-Contains a list of animation frames, as well as the one in case of collision. Each frame needs a key (0-100), which renders that frame at the percentage of the particle life span. A frame with the key 50 would be rendered at half the particle lifespan. 
+Contains a list of animation frames (not the same as the frames the texture gets cut to), as well as the one in case of collision. Each frame needs a key (0-100), which renders that frame at the percentage of the particle life span. A frame with the key 50 would be rendered at half the particle lifespan. 
 
 Values between frames are interpolated.
 
-| Field       | Description |
-| ----------- | ----------- |
-| Frame Index |             |
-| Scale       |             |
-| Rotation    |             |
-| Colour      |             |
-| Opacity     |             |
-Collision Animation Frame is the frame that gets displayed, when collision is triggered (\<\- rewrite this)
+| Field       | Description                                                  |
+| ----------- | ------------------------------------------------------------ |
+| Frame Index | the number of the texture frame, starting at 0 from top left |
+| Scale       | stretches the base size                                      |
+| Rotation    | rotates the particle starting at it's base rotation          |
+| Colour      | tints the particle to this colour                            |
+| Opacity     | the percentage of visibility between 0 and the base opacity  |
+`Collision Animation Frame` is the frame that gets displayed, when collision is triggered and `Last Frame`is selected as `Action`. The values act on their own, meaning they are not depenent from the prior `Animation` `Frame`or the default values defined `Initial Frame`.
 
 #### Initial Frame
 Contains the values that the animation treats as default values.
 
-| Field                  | Description |
-| ---------------------- | ----------- |
-| Frame Index            |             |
-| UV Option              |             |
-| Scale Ratio Constraint |             |
-| Scale                  |             |
-| Rotation               |             |
-| Colour                 |             |
-| Opacity                |             |
+| Field                   | Description                                                                                       |
+| ----------------------- | ------------------------------------------------------------------------------------------------- |
+| UV Option               | how the texture frame should get rotated:  <br /> -  <br /> -  <br /> -  <br /> -  <br /> -  <br /> -  <br /> - |
+| Scale Ratio Constraint  | how the with and height of tge particle are linked <br /> - `None` <br /> -  <br /> -  <br /> -           |
+| Initial Animation frame | defines the base values and starting frame                                                        |
+| -> Frame Index          | the texture frame that should get displayed upon spawn                                            |
+| -> Scale                | this scale is treated as `1` in `Animation`                                                       |
+| -> Rotation             | this rotation is treated as `0` in `Animation`                                                    |
+| -> Colour               | this is the starting colour                                                                       |
+| -> Opacity              | this opacity is treated as `1`                                                                    |
