@@ -14,7 +14,7 @@ Contains fields regarding the creation and deletion of the particle in the world
 | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Parent                   | Makes this `ParticleSpawner` inherit the values of another `ParticleSpawner` as default values. Spawn Burst and Wave Delay don't seem to be carried over correctly. `Particle` is more or less it's own nested asset, so you can only inherit the whole. |
 | Comment                  | A place for your notes                                                                                                                                                                                                                                   |
-| Tags                     | Tags are a way to organise assetes for further use with [java plugins](./todo)                                                                                                                                                                           |
+| Tags                     | Tags are a way to organise assetes for further use with [java plugins](../../../established-information/server/content-categories/plugin)                                                                                                                                                                           |
 | Shape                    | The Emit Offset is either calculated in a Sphere or a Cube. More on Emit Shapes [here](./emission-shapes).                                                                                                                                               |
 | Emit Offset              | Defines a Minimum Emit Offset Shape and a Maximum Emit Offset Shape. More on Emit Shapes [here](./emission-shapes).                                                                                                                                      |
 | Use Emit Direction       | If Initial Velocity has a Speed Value, the Pitch and Yaw of it get ignored and instead the movement is in a line, from/to the emit centre                                                                                                                |
@@ -60,7 +60,7 @@ Contains the reaction when a spawned particle hits a specified blocktype
 | Field                          | Description                                                                                                                                                                                                                                            |     |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --- |
 | Particle Collision             |                                                                                                                                                                                                                                                        |     |
-| -> Block Type                  | What block type triggers the collision:  <br />-`Solid`: only solid blocks (e.g. Soil, Rock, Wood)  <br />-`Air`: only air blocks (e.g. Leaves, Grass, Bushes; <span style="color:red">not</span> the Air/Empty Block)  <br />-`All`: both `Solid` and `Air` |     |
+| -> Block Type                  | What block type triggers the collision:  <br />-`Solid`: only solid blocks (e.g. Soil, Rock, Wood)  <br />-`Air`: only air blocks (e.g. Leaves, Grass, Bushes; <span style={{ color: 'red'}}>not</span> the Air/Empty Block)  <br />-`All`: both `Solid` and `Air` |     |
 | -> Action                      | what should be done upon collision:  <br />`Expire`: the particle disappears  <br />`Linger`: the particles motion gets halted (doesn't move anymore) <br /> `Last Frame`:                                                                                   |     |
 | -> Particle Rotation Influence |                                                                                                                                                                                                                                                        |     |
 
@@ -97,6 +97,7 @@ Values between frames are interpolated.
 | Rotation    | rotates the particle starting at it's base rotation          |
 | Colour      | tints the particle to this colour                            |
 | Opacity     | the percentage of visibility between 0 and the base opacity  |
+
 `Collision Animation Frame` is the frame that gets displayed, when collision is triggered and `Last Frame`is selected as `Action`. The values act on their own, meaning they are not depenent from the prior `Animation` `Frame`or the default values defined `Initial Frame`.
 
 #### Initial Frame
@@ -105,7 +106,7 @@ Contains the values that the animation treats as default values.
 | Field                   | Description                                                                                       |
 | ----------------------- | ------------------------------------------------------------------------------------------------- |
 | UV Option               | how the texture frame should get rotated:  <br /> -  <br /> -  <br /> -  <br /> -  <br /> -  <br /> -  <br /> - |
-| Scale Ratio Constraint  | how the with and height of tge particle are linked <br /> - `None` <br /> -  <br /> -  <br /> -           |
+| Scale Ratio Constraint  | how the with and height of the particle are linked <br /> - `None` <br /> -  <br /> -  <br /> -           |
 | Initial Animation frame | defines the base values and starting frame                                                        |
 | -> Frame Index          | the texture frame that should get displayed upon spawn                                            |
 | -> Scale                | this scale is treated as `1` in `Animation`                                                       |

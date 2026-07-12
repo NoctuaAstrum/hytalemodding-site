@@ -1,16 +1,16 @@
 {
   "title": "Particle Guide",
   "pages": [
-    "particle-overwiew.mdx",
-    "particle-system.mdx",
-    "particle-spawner-group.mdx",
-    "particle-spawner.mdx",
-    "emission-shapes.mdx",
-    "particle-render-modes.mdx",
-    "particle-movement.mdx",
-    "uv-motion.mdx",
+    "particle-overwiew",
+    "particle-system",
+    "particle-spawner-group",
+    "particle-spawner",
+    "emission-shapes",
+    "particle-render-modes",
+    "particle-movement",
+    "uv-motion",
     "workflow",
-    "summary.mdx"
+    "summary"
   ],
   "icon": "Snowflake"
 }
