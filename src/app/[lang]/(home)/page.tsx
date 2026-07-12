@@ -37,6 +37,7 @@ import MushroomLizard from "./(showcaseImages)/MushroomLizard.png";
 import AlecsTamework from "./(showcaseImages)/AlecsTamework.png";
 import Hexcode from "./(showcaseImages)/Hexcode.png";
 import HyYap from "./(showcaseImages)/HyYap.png";
+import Arcanum from "./(showcaseImages)/Arcanum.png";
 import { DiscordButton } from "./discord-button";
 import { SponsorButton } from "./support-button";
 import { GitInfoButton } from "@/components/git-info-button";
@@ -105,21 +106,21 @@ const showcaseItems: ShowcaseItem[] = [
     title: "Saqvobase's Spellcasting: Magic Circle - Gust",
     author: "Saqvobase",
     image: MagicCircleGust,
-    link: "",
+    link: "https://discord.gg/hytalemodding",
     type: "art",
   },
   {
     title: "Shroomie",
     author: "Miyako Hikari",
     image: Shroomie,
-    link: "",
+    link: "https://discord.gg/hytalemodding",
     type: "art",
   },
   {
     title: "Froggy",
     author: "Unknown Knight",
     image: Froggy,
-    link: "",
+    link: "https://discord.gg/hytalemodding",
     type: "art",
   },
   {
@@ -148,22 +149,29 @@ const showcaseItems: ShowcaseItem[] = [
     author: "lulu",
     image: Sanguivar,
     link: "https://discord.gg/hytalemodding",
-    type: "art"
+    type: "art",
   },
   {
     title: "Hexcode",
     author: "Riprod",
     image: Hexcode,
-    link: "https://discord.gg/hytalemodding",
-    type: "art"
+    link: "https://docs.hexcodec.com",
+    type: "art",
   },
   {
     title: "HyYap",
     author: "Azim",
     image: HyYap,
     link: "https://discord.gg/hytalemodding",
-    type: "art"
-  }
+    type: "art",
+  },
+  {
+    title: "Arcanum",
+    author: "zenkuro",
+    image: Arcanum,
+    link: "https://wiki.hytalemodding.dev/mod/zens-arcanum",
+    type: "art",
+  },
 ];
 
 const ShowcaseCard = ({ item }: { item: ShowcaseItem }) => {
@@ -348,7 +356,7 @@ export default function HomePage() {
         <div className="w-full max-w-5xl space-y-8 pt-16 text-center md:pt-0">
           <ViewTransition name="hero" share="blur-scale-transition">
             <div className="space-y-6">
-              {/* <div className="relative mx-auto w-fit max-w-full">
+              {/*<div className="relative mx-auto w-fit max-w-full">
                 <GlowEffect
                   colors={["#FF5733", "#33FF57", "#3357FF", "#F1C40F"]}
                   mode="flowHorizontal"
@@ -358,14 +366,14 @@ export default function HomePage() {
                 />
                 <div className="bg-background hover:bg-background/85 relative mx-4 rounded-lg p-2 text-sm font-medium shadow-md transition-colors duration-200 ease-in-out">
                     <Link
-                    href={"https://hytalemodding.dev/en/grants"}
+                    href={"https://hytalemodjam.com"}
                     className="flex items-center justify-center gap-2 text-wrap"
                     >
-                    We launched the HytaleModding x BisectHosting Grant Program!{" "}
+                    Hytale x HytaleModding ModJam is live!{" "}
                     <ArrowRightIcon className="h-4 w-4" />
                     </Link>
                 </div>
-              </div> */}
+              </div>*/}
               <h1 className="text-4xl font-semibold text-balance md:text-5xl">
                 <div>{messages.home.title.split("{flipwords}")[0]}</div>
                 <div>
@@ -383,16 +391,6 @@ export default function HomePage() {
                 <Button asChild>
                   <Link href={localizeHref("/docs", params.lang?.toString())}>
                     <BookIcon /> {messages.home.documentation}
-                  </Link>
-                </Button>
-                <Button asChild>
-                  <Link
-                    href="https://forum.hytalemodding.dev"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <MessageSquareIcon /> {messages.home.forum}{" "}
-                    <ExternalLinkIcon />
                   </Link>
                 </Button>
               </div>
