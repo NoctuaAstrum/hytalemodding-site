@@ -8,8 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, Github, Globe, Twitter } from "lucide-react";
-import { Card, Cards } from "fumadocs-ui/components/card";
-import { Callout } from "@/components/mdx/Callout";
+import { getMDXComponents } from "@/lib/mdx-components";
 
 type ProjectFrontmatter = {
   title: string;
@@ -28,12 +27,6 @@ type ProjectFrontmatter = {
     twitter?: string;
     website?: string;
   };
-};
-
-const components = {
-  Card,
-  Cards,
-  Callout: Callout,
 };
 
 const DiscordIcon = (
@@ -136,9 +129,9 @@ export default async function ProjectPage({
               priority
             />
           ) : (
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500 via-blue-500 to-cyan-500" />
+            <div className="absolute inset-0 bg-linear-to-br from-purple-500 via-blue-500 to-cyan-500" />
           )}
-          <div className="absolute inset-x-0 bottom-0 flex items-center gap-4 bg-gradient-to-t from-black/70 to-transparent p-6">
+          <div className="absolute inset-x-0 bottom-0 flex items-center gap-4 bg-linear-to-t from-black/70 to-transparent p-6">
             {hasLogo && (
               <div className="relative h-16 w-16 shrink-0">
                 <Image
@@ -177,7 +170,7 @@ export default async function ProjectPage({
         </div>
 
         <article className="prose prose-neutral dark:prose-invert max-w-none">
-          <MDXRemote source={project.content} components={components} />
+          <MDXRemote source={project.content} components={getMDXComponents()} />
         </article>
 
         {author && (
@@ -194,7 +187,7 @@ export default async function ProjectPage({
                   />
                 </div>
               ) : (
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-blue-500 text-2xl font-bold text-white">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-purple-500 to-blue-500 text-2xl font-bold text-white">
                   {author.name.charAt(0).toUpperCase()}
                 </div>
               )}
